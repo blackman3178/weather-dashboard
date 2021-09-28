@@ -1,0 +1,8 @@
+/* add custom CSS stylings to the header */
+body{
+    font-family: sans-serif,Georgia, 'Times New Roman', Times, serif ;
+}
+.header{
+    background-image: linear-gradient(to left,navy,rgb(34, 32, 194))
+}
+

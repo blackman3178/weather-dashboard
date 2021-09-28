@@ -1,0 +1,85 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./assets/CSS/style.css">
+     <title>Weather Dashboard</title>
+ </head>
+ <body>
+    <h1 class="header text-white p-4 text-center ">Weather Dashboard</h1>
+     <div class="flex-row align-start align-stretch-md align-content-stretch-md min-100-vh container">
+       <div class="row">
+        <div class="col-12 col-md-3 bg-success p-3 left-side ">
+            <h2 class="text-primary text-body">Search For a City:</h2>
+            <form class="mb-2 border-bottom border-secondary pb-3" id="search-form">
+                <input type="text" id="search-input" class="form-control w-100 mb-3" placeholder="Los Angeles">
+                <button class="btn btn-primary w-100 border">Search</button>
+            </form>
+            <div class="filled-by-local-storage"></div>
+        </div>
+        <div class="right-side col-12 col-md-9 p-3 ">
+            <div class="primary-weather-box border border-secondary pl-3">
+                <h2>Weather goes here <img src="" class="weather-icon" alt="Weather icon"></h2>
+                <p class="temp-text">Temp: </p>
+                <p class="wind-text">Wind: </p>
+                <p class="humidity-text">Humidity: </p>
+                <p class="UV-text">UV Index: </p>
+            </div>
+            <div class="5-day-forecast pl-3 container">
+                <h3>5-Day Forecast:</h3>
+                <div class="row">
+                    <div class="forecast-box bg-info col m-2">
+                        <p class="date font-weight-bold">sep 1</p>
+                        <img src="" alt="Weather icon" class="weather-icon">
+                        <p class="temp-text">Temp: </p>
+                        <p class="wind-text">Wind: </p>
+                        <p class="humidity-text">Humidity: </p>
+                    </div>
+                    <div class="forecast-box bg-info col m-2">
+                        <p class="date font-weight-bold">sep 1</p>
+                        <img src="" alt="Weather icon" class="weather-icon">
+                        <p class="temp-text">Temp: </p>
+                        <p class="wind-text">Wind: </p>
+                        <p class="humidity-text">Humidity: </p>
+                    </div>
+                    <div class="forecast-box bg-info col m-2">
+                        <p class="date font-weight-bold">sep 1</p>
+                        <img src="" alt="Weather icon" class="weather-icon">
+                        <p class="temp-text">Temp: </p>
+                        <p class="wind-text">Wind: </p>
+                        <p class="humidity-text">Humidity: </p>
+                    </div>
+                    <div class="forecast-box bg-info col m-2">
+                        <p class="date font-weight-bold">sep 1</p>
+                        <img src="" alt="Weather icon" class="weather-icon">
+                        <p class="temp-text">Temp: </p>
+                        <p class="wind-text">Wind: </p>
+                        <p class="humidity-text">Humidity: </p>
+                    </div>
+                    <div class="forecast-box bg-info col m-2">
+                        <p class="date font-weight-bold">sep 1</p>
+                        <img src="" alt="Weather icon" class="weather-icon">
+                        <p class="temp-text">Temp: </p>
+                        <p class="wind-text">Wind: </p>
+                        <p class="humidity-text">Humidity: </p>
+                    </div>
+                </div>
+            </div>
+         </div>
+       </div>
+     </div>
+
+     
+
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="./assets/JS/script.js"></script>
+ </body>
+ </html>
