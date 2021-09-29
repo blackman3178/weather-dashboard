@@ -62,6 +62,7 @@ function getDataByCoord(cityData) {
         if (response.ok) {
             response.json().then(function (data) {
                 displayTodaysData(data,name);
+                displayForecast(data);
             });
         } else {
             alert("Error: "+response.statusText + "(COORD)");
@@ -110,6 +111,45 @@ function displayTodaysData(data, cityName) {
 
     var currentUVI = data.current.uvi
     uviDisplay.text(currentUVI);
+
+}
+
+// compiles and renders the weather forecast for the next five days
+function displayForecast (data) {
+
+    for (var i = 0; i < 5; i++) {
+        count = i+1;
+        //calls elements based on count number
+        var dateBox = $(".date-" + count);
+        var weatherIcon = $(".weather-icon-" + count);
+        var tempBox = $(".temp-text-" + count);
+        var windBox = $(".wind-text-" + count);
+        var humidityBox = $(".humidity-text-" + count);
+
+        // display weather icons
+        var iconCode = data.daily[i].weather[0].icon;
+        var iconURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
+        weatherIcon.attr("src", iconURL);
+
+        dateBox.text(moment().add(count, "days").format("M/D/YYYY"))
+        dateBox.addClass("font-bolder text-white")
+
+        //clear previous input
+        tempBox.text("");
+        windBox.text("");
+        humidityBox.text("");
+
+        //update data and display
+        var tempurature = data.daily[i].temp.day;
+        tempBox.text("Temp: " + tempurature + " F").addClass("text-white");
+
+        var windSpeed = data.daily[i].wind_speed;
+        windBox.text("Wind: " + windSpeed + " MPH").addClass("text-white");
+
+        var humidity = data.daily[i].humidity;
+        humidityBox.text("Humidity: " + humidity + "%").addClass("text-white");
+
+    }
 
 }
 
