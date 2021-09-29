@@ -32,6 +32,7 @@ function init() {
     if (storedSearches !== null ) {
         lastSearches = storedSearches;
     }
+    getDataByCity("Tampa");
 }
 
 //gets data from oneWeather API using city call, calls the getDataByCoord functionn and inputs the data as a parameter, also error checks.
@@ -89,7 +90,7 @@ function displayTodaysData(data, cityName) {
     //show weather icon
     weatherImage.attr("style", "visibility: visible;");
 
-    cityAndDate.text(cityName);
+    cityAndDate.text(cityName + " (" + moment().format("M/D/YYYY" + ")"));
     
     //change the current weather icon
     var iconCode = data.current.weather[0].icon;
