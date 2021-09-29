@@ -8,6 +8,22 @@ function saveLastSearch() {
     localStorage.setItem("recentCitySearches", JSON.stringify(lastSearches));
 }
 
+function renderLastSearches() {
+    var searchListHTML = $(".filled-by-local-storage");
+    searchListHTML.text("");
+    console.log(lastSearches);
+
+    for ( var i = 0; i < lastSearches.length; i++) {
+        var searchCity = lastSearches[i];
+
+        var div = $("<button>");
+        div.text(searchCity);
+        div.addClass("btn btn-secondary w-100 mb-3 border");
+        searchListHTML.append(div);
+    }
+
+}
+
 //on a click of the submit button, get the input from the user search, error check, trim the input and then add it to the array of last searches by calling the function. then call the function to get data by city.
 searchButton.on("click",function (event) {
     event.preventDefault();
@@ -33,6 +49,7 @@ function init() {
         lastSearches = storedSearches;
     }
     getDataByCity("Tampa");
+    renderLastSearches();
 }
 
 //gets data from oneWeather API using city call, calls the getDataByCoord functionn and inputs the data as a parameter, also error checks.
@@ -112,6 +129,7 @@ function displayTodaysData(data, cityName) {
     var currentUVI = data.current.uvi
     uviDisplay.text(currentUVI);
 
+    renderLastSearches();
 }
 
 // compiles and renders the weather forecast for the next five days
