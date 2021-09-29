@@ -8,6 +8,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
     <link rel="stylesheet" href="./assets/CSS/style.css">
      <title>Weather Dashboard</title>
  </head>
@@ -19,13 +23,17 @@
             <h2 class="text-primary text-body">Search For a City:</h2>
             <form class="mb-2 border-bottom border-secondary pb-3" id="search-form">
                 <input type="text" id="search-input" class="form-control w-100 mb-3" placeholder="Los Angeles">
-                <button class="btn btn-primary w-100 border">Search</button>
+                <button class="btn search-button btn-primary w-100 border">Search</button>
             </form>
             <div class="filled-by-local-storage"></div>
         </div>
+
+
+
+
         <div class="right-side col-12 col-md-9 p-3 ">
             <div class="primary-weather-box border border-secondary pl-3">
-                <h2>Weather goes here <img src="" class="weather-icon" alt="Weather icon"></h2>
+                <h2>Weather goes here <img src="" class="weather-icon-main" alt="Weather icon"></h2>
                 <p class="temp-text">Temp: </p>
                 <p class="wind-text">Wind: </p>
                 <p class="humidity-text">Humidity: </p>
@@ -34,37 +42,37 @@
             <div class="5-day-forecast pl-3 container">
                 <h3>5-Day Forecast:</h3>
                 <div class="row">
-                    <div class="forecast-box bg-info col m-2">
+                    <div class="forecast-box-1 bg-info col m-2">
                         <p class="date font-weight-bold">sep 1</p>
-                        <img src="" alt="Weather icon" class="weather-icon">
+                        <img src="" alt="Weather icon" class="weather-icon-1">
                         <p class="temp-text">Temp: </p>
                         <p class="wind-text">Wind: </p>
                         <p class="humidity-text">Humidity: </p>
                     </div>
-                    <div class="forecast-box bg-info col m-2">
+                    <div class="forecast-box-2 bg-info col m-2">
                         <p class="date font-weight-bold">sep 1</p>
-                        <img src="" alt="Weather icon" class="weather-icon">
+                        <img src="" alt="Weather icon" class="weather-icon-2">
                         <p class="temp-text">Temp: </p>
                         <p class="wind-text">Wind: </p>
                         <p class="humidity-text">Humidity: </p>
                     </div>
-                    <div class="forecast-box bg-info col m-2">
+                    <div class="forecast-box-3 bg-info col m-2">
                         <p class="date font-weight-bold">sep 1</p>
-                        <img src="" alt="Weather icon" class="weather-icon">
+                        <img src="" alt="Weather icon" class="weather-icon-3">
                         <p class="temp-text">Temp: </p>
                         <p class="wind-text">Wind: </p>
                         <p class="humidity-text">Humidity: </p>
                     </div>
-                    <div class="forecast-box bg-info col m-2">
+                    <div class="forecast-box-4 bg-info col m-2">
                         <p class="date font-weight-bold">sep 1</p>
-                        <img src="" alt="Weather icon" class="weather-icon">
+                        <img src="" alt="Weather icon" class="weather-icon-4">
                         <p class="temp-text">Temp: </p>
                         <p class="wind-text">Wind: </p>
                         <p class="humidity-text">Humidity: </p>
                     </div>
-                    <div class="forecast-box bg-info col m-2">
+                    <div class="forecast-box-5 bg-info col m-2">
                         <p class="date font-weight-bold">sep 1</p>
-                        <img src="" alt="Weather icon" class="weather-icon">
+                        <img src="" alt="Weather icon" class="weather-icon-5">
                         <p class="temp-text">Temp: </p>
                         <p class="wind-text">Wind: </p>
                         <p class="humidity-text">Humidity: </p>
@@ -80,6 +88,7 @@
 
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./assets/JS/script.js"></script>
  </body>
  </html>
