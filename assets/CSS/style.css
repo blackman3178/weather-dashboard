@@ -6,3 +6,12 @@ body{
     background-image: linear-gradient(to left,navy,rgb(34, 32, 194))
 }
 
+#put-uvi-here {
+    text-decoration: none;
+
+}
+
+.weather-icon-main {
+    visibility: hidden;
+}
+

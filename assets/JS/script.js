@@ -36,7 +36,7 @@ function init() {
 
 //gets data from oneWeather API using city call, calls the getDataByCoord functionn and inputs the data as a parameter, also error checks.
 function getDataByCity(city) {
-    var apiUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=d954b63ba94c93f074805e508116108b";
+    var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=d954b63ba94c93f074805e508116108b";
 
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
@@ -51,9 +51,64 @@ function getDataByCity(city) {
 
 //uses the data passed in by the city call to get more weather data using lat and lon of user city.
 function getDataByCoord(cityData) {
-    var lon = cityData.city.coord.lat;
-    var lat = cityData.city.coord.lon;
+    var lat = cityData.city.coord.lat;
+    var lon = cityData.city.coord.lon;
+    var name = cityData.city.name;
     console.log(lon +' : ' + lat);
+    var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=d954b63ba94c93f074805e508116108b&units=imperial";
+
+    fetch(apiUrl).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (data) {
+                displayTodaysData(data,name);
+            });
+        } else {
+            alert("Error: "+response.statusText + "(COORD)");
+        }
+    });
+
+}
+
+//gets data from second API call and displays it to the HTML page as todays data.
+function displayTodaysData(data, cityName) {
+    var tempDisplay = $(".temp-text-main");
+    var windDisplay = $(".wind-text-main");
+    var humidityDisplay = $(".humidity-text-main");
+    var uviDisplay = $("#put-uvi-here");
+    var cityAndDate = $("#city-header");
+    var weatherImage = $(".weather-icon-main");
+
+
+    
+    //clear existing data
+    tempDisplay.text("");
+    windDisplay.text("");
+    humidityDisplay.text("");
+    uviDisplay.text("");
+    cityAndDate.text('');
+    //show weather icon
+    weatherImage.attr("style", "visibility: visible;");
+
+    cityAndDate.text(cityName);
+    
+    //change the current weather icon
+    var iconCode = data.current.weather[0].icon;
+    var iconURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
+    weatherImage.attr("src", iconURL);
+    
+    //pull data and display in text on webpage
+    var currentTemp = data.current.temp;
+    currentTemp = String (currentTemp);
+    tempDisplay.text("Temp: " + currentTemp + " F" );
+
+    var currentWind = data.current.wind_speed;
+    windDisplay.text("Wind: " + currentWind + " MPH");
+
+    var currentHumidity = data.current.humidity;
+    humidityDisplay.text("Humidity: " + currentHumidity + "%");
+
+    var currentUVI = data.current.uvi
+    uviDisplay.text(currentUVI);
 
 }
 
