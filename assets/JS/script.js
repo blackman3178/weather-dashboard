@@ -8,6 +8,7 @@ function saveLastSearch() {
     localStorage.setItem("recentCitySearches", JSON.stringify(lastSearches));
 }
 
+// renders the last searches that were stored in the local storage and prosents them as buttons.
 function renderLastSearches() {
     var searchListHTML = $(".filled-by-local-storage");
     searchListHTML.text("");
@@ -18,11 +19,24 @@ function renderLastSearches() {
 
         var div = $("<button>");
         div.text(searchCity);
-        div.addClass("btn btn-secondary w-100 mb-3 border");
+        div.addClass("btn btn-secondary w-100 mb-3 border recent-search-button");
         searchListHTML.append(div);
     }
+    var recentSearchButtons = $(".recent-search-button");
+
+    // for (var n = 0; n < recentSearchButtons.length; n++) {
+    //     recentSearchButtons[n].click(reuseSearch());
+    // }
 
 }
+
+$(".recent-search-button").each(function () {
+    var item = this;
+
+    item.addEventListener("click", function () {
+
+    });
+});
 
 //on a click of the submit button, get the input from the user search, error check, trim the input and then add it to the array of last searches by calling the function. then call the function to get data by city.
 searchButton.on("click",function (event) {
@@ -128,6 +142,20 @@ function displayTodaysData(data, cityName) {
 
     var currentUVI = data.current.uvi
     uviDisplay.text(currentUVI);
+
+    // changes uvi warning color based on threat level
+     if (currentUVI <= 5) {
+         uviDisplay.addClass("bg-success text-white btn px-2 py-0");
+         uviDisplay.removeClass("bg-warning bg-danger");
+         console.log("not a porblem");
+     } else if (currentUVI > 5 && currentUVI <= 7) {
+         uviDisplay.addClass("bg-warning text-white");
+         console.log("warning!!")
+         uviDisplay.removeClass("bg-success bg-danger");
+     } else {
+         uviDisplay.addClass("bg-dange  text-white");
+         uviDisplay.removeClass("bg-success bg-warning");
+     }
 
     renderLastSearches();
 }
